@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /*
+  ~  * Copyright (c) 2018. T.C.
+  ~  * All Rights Reserved
+  ~  *
+  ~  * This product is protected by copyright and distributed under
+  ~  * licenses restricting copying, distribution and decompilation.
+  ~  *
+  ~  */
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/colorPrimary" android:state_focused="true"/>
+    <item android:color="@color/light_grey" android:state_hovered="true"/>
+    <item android:color="@color/grey"/>
+</selector>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /*
+  ~  * Copyright (c) 2018. T.C.
+  ~  * All Rights Reserved
+  ~  *
+  ~  * This product is protected by copyright and distributed under
+  ~  * licenses restricting copying, distribution and decompilation.
+  ~  *
+  ~  */
+  -->
+
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/InputLayout"
+        >
+        
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:hint="Votre message"
+            android:inputType="textCapWords"
+            style="@style/AppEditTextStyle"
+            />
+    
+    </com.google.android.material.textfield.TextInputLayout>
+
+</merge>

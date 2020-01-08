@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /*
+  ~  * Copyright (c) 2018. T.C.
+  ~  * All Rights Reserved
+  ~  *
+  ~  * This product is protected by copyright and distributed under
+  ~  * licenses restricting copying, distribution and decompilation.
+  ~  *
+  ~  */
+  -->
+
+<resources>
+    
+    <!-- common attributes to all custom text based views -->
+    <declare-styleable name="MaterialEditText">
+        <attr name="hint" format="reference"/>
+        <attr name="inputType" format="string"/>
+    </declare-styleable>
+</resources>
