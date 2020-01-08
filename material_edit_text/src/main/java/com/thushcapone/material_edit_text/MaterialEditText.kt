@@ -122,7 +122,7 @@ class MaterialEditText : LinearLayout {
         })
     }
 
-    fun setText(text: String){
+    fun setText(text: String?){
         edit?.setText(text)
     }
 
