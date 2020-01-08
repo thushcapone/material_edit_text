@@ -20,6 +20,9 @@ import android.util.AttributeSet
 import android.util.SparseArray
 import android.view.LayoutInflater
 import android.widget.LinearLayout
+import androidx.annotation.IdRes
+import androidx.annotation.IntegerRes
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
 import androidx.databinding.InverseBindingAdapter
@@ -117,6 +120,14 @@ class MaterialEditText : LinearLayout {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         })
+    }
+
+    fun setText(text: String){
+        edit?.setText(text)
+    }
+
+    fun setText(@StringRes resId: Int){
+        edit?.setText(resId)
     }
 
     override fun onSaveInstanceState(): Parcelable? {
