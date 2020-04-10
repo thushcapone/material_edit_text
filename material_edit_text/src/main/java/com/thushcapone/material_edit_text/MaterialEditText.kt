@@ -17,6 +17,7 @@ import android.os.Parcelable
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
+import android.util.Log
 import android.util.SparseArray
 import android.view.LayoutInflater
 import android.widget.LinearLayout
@@ -48,6 +49,7 @@ class MaterialEditText : LinearLayout {
 
     private var mHint: String? = null
     private var mInputType: String? = null
+    private var mEnabled: Boolean? = null
 
     constructor(context: Context) : super(context) {
         initializeViews(context)
@@ -69,11 +71,9 @@ class MaterialEditText : LinearLayout {
             R.styleable.MaterialEditText, 0, 0
         )
 
-        mHint = context.getString(a.getResourceId(
-            R.styleable.MaterialEditText_hint,
-            R.string.empty
-        ))
+        mHint = context.getString(a.getResourceId(R.styleable.MaterialEditText_hint, R.string.empty))
         mInputType = a.getString(R.styleable.MaterialEditText_inputType)
+        mEnabled = a.getBoolean(R.styleable.MaterialEditText_enabled, true)
         a.recycle()
     }
 
@@ -93,6 +93,7 @@ class MaterialEditText : LinearLayout {
         setupView()
         setupHint()
         setupInputTypes()
+        setupEnabled()
         removeError()
     }
 
@@ -108,6 +109,13 @@ class MaterialEditText : LinearLayout {
     private fun setupInputTypes(){
         InputTypeItem.INPUT_TYPES.find { item -> item.name == mInputType }?.let {
             edit?.inputType = it.value
+        }
+    }
+
+    private fun setupEnabled(){
+        mEnabled?.let { value ->
+            layout?.isEnabled = value
+            edit?.isEnabled = value
         }
     }
 
@@ -128,6 +136,12 @@ class MaterialEditText : LinearLayout {
 
     fun setText(@StringRes resId: Int){
         edit?.setText(resId)
+    }
+
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        layout?.isEnabled = enabled
+        edit?.isEnabled = enabled
     }
 
     override fun onSaveInstanceState(): Parcelable? {
@@ -210,3 +224,20 @@ fun setErrorValue(materialEditText: MaterialEditText, error: MutableLiveData<Str
 }
 
 ////------------------ END  SET ERROR -------------/////
+
+////------------------ SET ENABLED -------------/////
+@BindingAdapter("mutableEnabled")
+fun setEnabled(materialEditText: MaterialEditText, error: MutableLiveData<Boolean>?) {
+    val parentActivity: AppCompatActivity? = materialEditText.getParentActivity()
+    if (parentActivity != null && error != null) {
+        error.observe(
+            parentActivity,
+            Observer { value ->
+                materialEditText.layout?.isEnabled = value
+                materialEditText.edit?.isEnabled = value
+            }
+        )
+    }
+}
+
+////------------------ END  SET ENABLED -------------/////

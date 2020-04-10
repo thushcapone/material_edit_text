@@ -63,8 +63,10 @@ Table below describes the properties available to customize the MaterialEditText
 |------------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|  
 | hint            | reference     | Set the string resource used as the default hint                             |  
 | inputType            | reference | Set the input type |  
+| enabled            | boolean | Set the enable status |  
 | text           | binding-value | Will receive the value of the text typed  |  
-| error                | binding-value | Will be called when an error has been reached and show the error specified |  
+| error                | binding-value | Will be called when an error has been reached and show the error specified |
+| mutableEnabled                | binding-value | Will set the enable status when changed |  
   
 # License  
 ```  

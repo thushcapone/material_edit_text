@@ -16,5 +16,6 @@
     <declare-styleable name="MaterialEditText">
         <attr name="hint" format="reference"/>
         <attr name="inputType" format="string"/>
+        <attr name="enabled" format="boolean"/>
     </declare-styleable>
 </resources>

@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         app:hint="@string/hint_sample"
         app:inputType="textCapWords"
+        app:enabled="false"
         />
 
 </LinearLayout>
